@@ -48,4 +48,6 @@ function getRandomHexColor() {
 
 function destroyBoxes(evt) {
     boxes.innerHTML = "";
+    boxSize = 30;
+    input.value = "";
 }
