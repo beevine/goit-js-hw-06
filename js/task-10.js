@@ -1,13 +1,6 @@
 // Напиши скрипт створення і очищення колекції елементів. Користувач вводить кількість елементів в input
 // і натискає кнопку Створити, після чого рендериться колекція.Натисненням на кнопку Очистити, колекція елементів очищається.
 
-// <div id="controls">
-//   <input type="number" min="1" max="100" step="1" />
-//   <button type="button" data-create>Create</button>
-//   <button type="button" data-destroy>Destroy</button>
-// </div>
-
-// <div id="boxes"></div>
 // Створи функцію createBoxes(amount), яка приймає один параметр - число. Функція створює стільки <div>,
 // скільки вказано в amount і додає їх у div#boxes.
 
@@ -22,6 +15,37 @@
 // }
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
+const createButton = document.querySelector("[data-create]");
+const input = document.querySelector("input");
+const boxes = document.querySelector("#boxes");
+const destroyButton = document.querySelector("[data-destroy]");
+
+let boxSize = 30;
+
+createButton.addEventListener("click", onCreate);
+destroyButton.addEventListener("click", onDestroy);
+console.log(createButton);
+
+function onCreate(evt) {
+    createBoxes(input.value);
+}
+
+function createBoxes(count) {
+    console.log(count);
+    for (let i = 0; i < count; i += 1) {
+        const div = document.createElement("div");
+        div.style.height = boxSize + "px";
+        div.style.width = boxSize + "px";
+        div.style.backgroundColor = getRandomHexColor();
+        boxes.appendChild(div);
+        boxSize = boxSize + 10;
+    }
+}
+
 function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
+function destroyBoxes(evt) {
+    boxes.innerHTML = "";
 }

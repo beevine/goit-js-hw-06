@@ -8,13 +8,15 @@
 // які ми вже додали у вихідні файли завдання.
 
 let input = document.querySelector("#validation-input");
+// let quantity = input.getAttribute("data-length");
 
 input.addEventListener("blur", () => {
-    if (input.value.length == input.getAttribute("data-length")) {
-        input.classList.add("valid");
-        input.classList.remove("invalid");
+    if (input.value.length !== Number(input.getAttribute("data-length"))) {
+        input.className = "invalid";
     } else {
-        input.classList.add("invalid");
-        input.classList.remove("valid");
+        input.className = "valid";
     }
+    console.log(input.getAttribute("data-length"));
+    console.log(input.value.length);
+    console.log(input.classList);
 });
