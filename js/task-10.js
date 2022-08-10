@@ -23,13 +23,15 @@ const destroyButton = document.querySelector("[data-destroy]");
 let boxSize = 30;
 
 createButton.addEventListener("click", onCreate);
-destroyButton.addEventListener("click", onDestroy);
+destroyButton.addEventListener("click", destroyBoxes);
+console.log(createButton);
 
 function onCreate(evt) {
     createBoxes(input.value);
 }
 
 function createBoxes(count) {
+    console.log(count);
     for (let i = 0; i < count; i += 1) {
         const div = document.createElement("div");
         div.style.height = boxSize + "px";
