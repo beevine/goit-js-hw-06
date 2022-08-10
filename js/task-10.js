@@ -24,14 +24,12 @@ let boxSize = 30;
 
 createButton.addEventListener("click", onCreate);
 destroyButton.addEventListener("click", onDestroy);
-console.log(createButton);
 
 function onCreate(evt) {
     createBoxes(input.value);
 }
 
 function createBoxes(count) {
-    console.log(count);
     for (let i = 0; i < count; i += 1) {
         const div = document.createElement("div");
         div.style.height = boxSize + "px";
